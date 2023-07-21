@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 import { getAllProducts } from '../../ApiService/api'
+import { Link } from 'react-router-dom'
 
 function Home() {
 
@@ -26,9 +27,11 @@ function Home() {
                         <h2>{product.title}</h2>
                         <p>
                             
-                            <span className='price'>{product.price}</span>
+                            <span className='price'>${product.price}</span>
                         </p>
+                        <Link to={`/product/${product.id}`}>
                         <button className='product-btn'>Product details</button>
+                        </Link>
                     </div>
                 ))
             }
